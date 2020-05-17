@@ -10,7 +10,7 @@ class EmployeeManager
     $this->pathFile = $pathFile;
     }
 
-    public function getDataFromPathFile()
+    public function getDataToFile()
     {
         // get decode dataJson from pathFile data.json
 
@@ -30,7 +30,7 @@ class EmployeeManager
 
     public function addEmployee($employee)
     {
-        $data = $this->getDataFromPathFile();
+        $data = $this->getDataToFile();
         $array = [
             'id' => $employee->getId(),
             'lastname' => $employee->getLastname(),
@@ -45,7 +45,7 @@ class EmployeeManager
 
     public function getAllEmployee()
     {
-        $data = $this->getDataFromPathFile();
+        $data = $this->getDataToFile();
         $array = [];
         foreach ($data as $item) {
             $employee = new Employee($item['id'], $item['lastname'], $item['firstname'], $item['birth'], $item['address'], $item['position']);
@@ -56,12 +56,12 @@ class EmployeeManager
 
 //    public function editEmployee()
 //    {
-//        $data = $this->getDataFromPathFile();
+//        $data = $this->getDataToFile();
 //    }
 
     public function deleteEmployee($id)
     {
-        $data = $this->getDataFromPathFile();
+        $data = $this->getDataToFile();
         unset($data[$id]);
         $this->saveDataToFile($data);
     }

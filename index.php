@@ -26,7 +26,7 @@ $employees = $employeeManager->getAllEmployee();
         <th>Address</th>
         <th>Position</th>
     </tr>
-    
+
     <?php foreach ($employees as $key => $employee): ?>
     <tr>
         <td><?php echo $employee->getId() ?></td>
